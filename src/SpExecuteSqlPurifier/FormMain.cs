@@ -19,8 +19,8 @@ namespace SpExecuteSqlPurifier
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
             System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
             uint dummy = 0;
-            fonts.AddMemoryFont(fontPtr, Properties.Resources.UbuntuMono_R.Length);
-            WinApi.AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.UbuntuMono_R.Length, IntPtr.Zero, ref dummy);
+            fonts.AddMemoryFont(fontPtr, fontData.Length);
+            WinApi.AddFontMemResourceEx(fontPtr, (uint)fontData.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
             myFont = new Font(fonts.Families[0], 10.0F);
