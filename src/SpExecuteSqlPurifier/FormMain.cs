@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SpExecuteSqlPurifier
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
             SetupComponent();
@@ -42,23 +37,23 @@ namespace SpExecuteSqlPurifier
             textBoxResult.Text = new Converter() { Variables = checkBoxVariables.Checked }.Convert(textBoxSource.Text);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void FormMain_Load(object sender, EventArgs e)
         {
             ButtonConvert_Click(null, null);
         }
 
-        private void buttonAbout_Click(object sender, EventArgs e)
+        private void ButtonAbout_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Written by Filip Golewski", "About",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void buttonCopy_Click(object sender, EventArgs e)
+        private void ButtonCopy_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(textBoxResult.Text);
         }
 
-        private void buttonPaste_Click(object sender, EventArgs e)
+        private void ButtonPaste_Click(object sender, EventArgs e)
         {
             textBoxSource.Text = Clipboard.GetText();
             ButtonConvert_Click(null, null);

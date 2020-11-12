@@ -36,6 +36,8 @@ sp_executesql
     (?:[+-]\s*)?\$\s*?\d+(?:\.\d*)?
     |
     (?:[+-]\s*)?\d+(?:\.\d*)?(?:[\ \t]*[eE](?:[+\-]?\d+)?)?
+    |
+    (?:NULL)
   )
 )*
 (?:\s*;[\ \t]*\r?\n?)?
@@ -82,6 +84,8 @@ sp_executesql
   (?:[+-]\s*)?\$\s*?\d+(?:\.\d*)?
   |
   (?:[+-]\s*)?\d+(?:\.\d*)?(?:[\ \t]*[eE](?:[+\-]?\d+)?)?
+  |
+  (?:NULL)
 )
 ";
 
@@ -128,7 +132,7 @@ sp_executesql
 
         private string Partial(string input)
         {
-            RegexOptions regexOptions = RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace;
+            RegexOptions regexOptions = RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace | RegexOptions.CultureInvariant;
             Regex regexPart = new Regex(patternPart, regexOptions);
             int n = 0;
             StringBuilder sb = new StringBuilder();

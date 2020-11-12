@@ -12,3 +12,8 @@ exec sp_executesql N'
 update [history] set stop = @stop_time where id = @id
 ',N'@stop_time datetime,@id bigint',@stop_time='2020-05-26 03:25:10.500',@id=9200651
 ```
+
+Download
+--------
+
+Compiled versions can be found [here](download/).

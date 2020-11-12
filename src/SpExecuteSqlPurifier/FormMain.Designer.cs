@@ -1,6 +1,6 @@
 ﻿namespace SpExecuteSqlPurifier
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.textBoxSource = new System.Windows.Forms.TextBox();
             this.buttonConvert = new System.Windows.Forms.Button();
             this.textBoxResult = new System.Windows.Forms.TextBox();
@@ -48,10 +49,11 @@
             this.textBoxSource.Size = new System.Drawing.Size(776, 172);
             this.textBoxSource.TabIndex = 1;
             this.textBoxSource.Text = "exec sp_executesql @stmt = N\'SELECT \'\'@@a\'\' + @@a + @@b\'\r\n  , @params = N\'@@a nva" +
-    "rchar , @@b nvarchar(10)\',@@a=\'123\',@@b=\'345\';\r\n";
+    "rchar , @@b nvarchar(10)\'\r\n  , @@a=NULL,@@b=\'345\';\r\n";
             // 
             // buttonConvert
             // 
+            this.buttonConvert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonConvert.Location = new System.Drawing.Point(12, 368);
             this.buttonConvert.Name = "buttonConvert";
             this.buttonConvert.Size = new System.Drawing.Size(75, 23);
@@ -62,7 +64,8 @@
             // 
             // textBoxResult
             // 
-            this.textBoxResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxResult.Location = new System.Drawing.Point(12, 190);
             this.textBoxResult.Multiline = true;
@@ -73,6 +76,7 @@
             // 
             // checkBoxVariables
             // 
+            this.checkBoxVariables.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxVariables.AutoSize = true;
             this.checkBoxVariables.Location = new System.Drawing.Point(93, 372);
             this.checkBoxVariables.Name = "checkBoxVariables";
@@ -83,38 +87,38 @@
             // 
             // buttonCopy
             // 
-            this.buttonCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCopy.Location = new System.Drawing.Point(551, 368);
             this.buttonCopy.Name = "buttonCopy";
             this.buttonCopy.Size = new System.Drawing.Size(75, 23);
             this.buttonCopy.TabIndex = 4;
             this.buttonCopy.Text = "COPY";
             this.buttonCopy.UseVisualStyleBackColor = true;
-            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
+            this.buttonCopy.Click += new System.EventHandler(this.ButtonCopy_Click);
             // 
             // buttonPaste
             // 
-            this.buttonPaste.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPaste.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonPaste.Location = new System.Drawing.Point(632, 368);
             this.buttonPaste.Name = "buttonPaste";
             this.buttonPaste.Size = new System.Drawing.Size(75, 23);
             this.buttonPaste.TabIndex = 5;
             this.buttonPaste.Text = "PASTE";
             this.buttonPaste.UseVisualStyleBackColor = true;
-            this.buttonPaste.Click += new System.EventHandler(this.buttonPaste_Click);
+            this.buttonPaste.Click += new System.EventHandler(this.ButtonPaste_Click);
             // 
             // buttonAbout
             // 
-            this.buttonAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAbout.Location = new System.Drawing.Point(713, 368);
             this.buttonAbout.Name = "buttonAbout";
             this.buttonAbout.Size = new System.Drawing.Size(75, 23);
             this.buttonAbout.TabIndex = 6;
             this.buttonAbout.Text = "ABOUT";
             this.buttonAbout.UseVisualStyleBackColor = true;
-            this.buttonAbout.Click += new System.EventHandler(this.buttonAbout_Click);
+            this.buttonAbout.Click += new System.EventHandler(this.ButtonAbout_Click);
             // 
-            // Form1
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -126,10 +130,12 @@
             this.Controls.Add(this.textBoxResult);
             this.Controls.Add(this.buttonConvert);
             this.Controls.Add(this.textBoxSource);
-            this.Name = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(600, 300);
+            this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Purifier for SQL Server sp_executesql operations";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
